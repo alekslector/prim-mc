@@ -1,21 +1,21 @@
 groups:
-- name: team1
+- name: team2
   rules:
 
   # Alert for any instance that is unreachable for >5 minutes.
-  - alert: team1_alert1
+  - alert: team2_alert1
     expr: up == 0
-    for: 5m
+    for: 50m
     labels:
-      severity: page
+      severity: min
     annotations:
       summary: "Instance {{ $labels.instance }} down"
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes."
 
   # Alert for any instance that has a median request latency >1s.
-  - alert: team1_alert2
+  - alert: team2_alert2
     expr: api_http_request_latencies_second{quantile="0.5"} > 1
-    for: 10m
+    for: 100m
     annotations:
       summary: "High request latency on {{ $labels.instance }}"
       description: "{{ $labels.instance }} has a median request latency above 1s (current value: {{ $value }}s)"
