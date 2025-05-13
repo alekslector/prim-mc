@@ -6,6 +6,6 @@ scrape_configs:
   - job_name: team1_job2
     static_configs:
       - targets:
-        - {{ PROMWATCH_OPSGENIE_URL }}
+        - localhost:9100
         labels:
-          target_label: foo
+          target_label: {{ PROMWATCH_OPSGENIE_URL }}
