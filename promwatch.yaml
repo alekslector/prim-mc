@@ -15,20 +15,16 @@ promwatch_target: promwatch:8080                 # Default PromWatch target for 
 
 sources:
   git_sources:
-    - name: team1                         # Friendly name (required)
+    - name: team1                                # Friendly name (required)
       repo: git@github.com:alekslector/prim-mc.git
-      branch: team1                                 # Branch to use (default: main)
+      branch: team1                              # Branch to use (default: main)
       auth:
         type: ssh
-        key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}                       # Reference to environment variable for SSH key
-        # OR use key_path for a file with the SSH key
-        # key_path: /path/to/ssh/key
-
-    - name: team2                         # Friendly name (required)
+        key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}  # Reference to environment variable for SSH key
+        
+    - name: team2                                # Friendly name (required)
       repo: git@github.com:alekslector/prim-mc.git
-      branch: team2                                 # Branch to use (default: main)
+      branch: team2                              # Branch to use (default: main)
       auth:
         type: ssh
-        key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}                       # Reference to environment variable for SSH key
-        # OR use key_path for a file with the SSH key
-        # key_path: /path/to/ssh/key
+        key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}  # Reference to environment variable for SSH key
