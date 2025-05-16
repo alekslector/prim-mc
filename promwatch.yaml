@@ -11,18 +11,6 @@ source_priority: GIT,HTTP,KUBERNETES             # Order of source priority
 prometheus_target: prometheus:9090               # Default Prometheus target for placeholder mode
 promwatch_target: promwatch:8080                 # Default PromWatch target for placeholder mode
 
-scrape_configs:
-  - job_name: promwatch
-    static_configs:
-      - targets: ['promwatch:8080']
-
-defaults_repo:
-  repo: git@github.com:alekslector/prim-mc.git
-  branch: defaults
-  auth:
-    type: ssh
-    key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}  
-
 sources:
   git_sources:
     - name: team1                         # Friendly name (required)
