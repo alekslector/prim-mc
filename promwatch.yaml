@@ -13,9 +13,18 @@ promwatch_target: promwatch:8080
 
 sources:
   git_sources:
-    - name: team2
+    - name: team1
       repo: git@github.com:alekslector/prim-mc.git
-      branch: team2ß
+      branch: team1
       auth:
         type: ssh
-        key_env: "${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}"
+        key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}
+
+# Add common targets for basic monitoring
+common_targets:
+  - name: node_exporter
+    job_name: node
+    targets:
+      - localhost:9100
+    scrape_interval: 60s
+
