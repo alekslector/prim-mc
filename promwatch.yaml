@@ -13,9 +13,9 @@ promwatch_target: promwatch:8080
 
 sources:
   git_sources:
-    - name: team1
+    - name: team2
       repo: git@github.com:alekslector/prim-mc.git
-      branch: team1
+      branch: team2ß
       auth:
         type: ssh
         key_env: "${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}"
