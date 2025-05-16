@@ -18,4 +18,4 @@ sources:
       branch: team1
       auth:
         type: ssh
-        key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}
+        key_env: "${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}"
