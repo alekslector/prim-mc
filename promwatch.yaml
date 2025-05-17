@@ -19,24 +19,10 @@ sources:
       auth:
         type: ssh
         key_env: PROMWATCH_DEFAULTS_SSH_KEY_CONTENT
+    
     - name: team2
       repo: git@github.com:alekslector/prim-mc.git
-      branch: team2ß
+      branch: team2
       auth:
         type: ssh
         key_env: PROMWATCH_DEFAULTS_SSH_KEY_CONTENT
-
-common_targets:
-  - name: node_exporter
-    job_name: node
-    targets:
-      - localhost:9100
-    scrape_interval: 60s
-
-  - name: app_metrics
-    job_name: app
-    targets:
-      - localhost:8000
-    scrape_interval: 10s
-    labels:
-      target_label: foo
