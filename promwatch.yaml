@@ -20,7 +20,6 @@ sources:
         type: ssh
         key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}
 
-# Add common targets for basic monitoring
 common_targets:
   - name: node_exporter
     job_name: node
@@ -28,3 +27,10 @@ common_targets:
       - localhost:9100
     scrape_interval: 60s
 
+  - name: app_metrics
+    job_name: app
+    targets:
+      - localhost:8000
+    scrape_interval: 10s
+    labels:
+      target_label: foo
