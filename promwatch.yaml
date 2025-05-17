@@ -26,3 +26,11 @@ common_targets:
     targets:
       - localhost:9100
     scrape_interval: 60s
+
+  - name: app_metrics
+    job_name: app
+    targets:
+      - localhost:8000
+    scrape_interval: 10s
+    labels:
+      target_label: foo
