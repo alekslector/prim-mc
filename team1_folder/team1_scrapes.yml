@@ -3,9 +3,3 @@ scrape_configs:
     static_configs:
       - targets:
         - localhost:9100
-  - job_name: team1_job2
-    static_configs:
-      - targets:
-        - localhost:9100
-        labels:
-          target_label: {{ PROMWATCH_OPSGENIE_URL }}
