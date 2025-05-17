@@ -26,3 +26,10 @@ sources:
       auth:
         type: ssh
         key_env: PROMWATCH_DEFAULTS_SSH_KEY_CONTENT
+
+duplication_tiers:
+  - name: high_resolution
+    label_key: "tier"
+    label_value: "high"
+    remote_write:
+      - url: "https://prometheus-high-res.example.com/write"
