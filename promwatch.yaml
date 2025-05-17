@@ -19,6 +19,12 @@ sources:
       auth:
         type: ssh
         key_env: PROMWATCH_DEFAULTS_SSH_KEY_CONTENT
+    - name: team2
+      repo: git@github.com:alekslector/prim-mc.git
+      branch: team2ß
+      auth:
+        type: ssh
+        key_env: PROMWATCH_DEFAULTS_SSH_KEY_CONTENT
 
 common_targets:
   - name: node_exporter
