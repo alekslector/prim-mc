@@ -1,5 +1,3 @@
-global:
-  scrape_interval: 60s
 scrape_configs:
   - job_name: team1_job
     scrape_interval: 15s
