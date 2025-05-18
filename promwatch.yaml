@@ -10,6 +10,7 @@ secure_logging: true
 source_priority: GIT,HTTP,KUBERNETES
 prometheus_target: prometheus:9090
 promwatch_target: promwatch:8080
+enable_duplication_tiers: true
 
 sources:
   git_sources:
