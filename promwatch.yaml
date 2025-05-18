@@ -28,17 +28,30 @@ sources:
         key_env: PROMWATCH_DEFAULTS_SSH_KEY_CONTENT
 
 duplication_tiers:
-  - name: high_resolution
+  - name: low_resolution
     label_key: "tier"
     label_value: "high"
+    interval: "10m"
+  
+  - name: medium_resolution
+    label_key: "tier"
+    label_value: "medium"
+    interval: "3m"
 
 remote_write:
-  - name: long_term_storage
-    url: "https://prometheus-remote.example.com/write"
-    queue_config:
-      capacity: 10000
-      max_shards: 200
+  - name: high_resolution_storage
+    url: "https://prometheus-remote-highres.example.com/write"
     write_relabel_configs:
-    - source_labels: tier
+    - source_labels: [tier]  
       regex: high
       action: keep
+  
+  - name: medium_resolution_storage
+    url: "https://prometheus-remote-mediumres.example.com/write"
+    write_relabel_configs:
+    - source_labels: [tier]  
+      regex: medium
+      action: keep
+  
+  - name: raw_metrics_storage
+    url: "https://prometheus-remote-all.example.com/write"
