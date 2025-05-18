@@ -6,7 +6,7 @@ config_output_path: /promwatch/prometheus.yml
 reload_url: http://prometheus:9090/-/reload
 pull_interval_seconds: 60
 poll_jitter_seconds: 10
-secure_logging: true
+secure_logging: false
 source_priority: GIT,HTTP,KUBERNETES
 prometheus_target: prometheus:9090
 promwatch_target: promwatch:8080
@@ -56,3 +56,22 @@ remote_write:
   
   - name: raw_metrics_storage
     url: "https://prometheus-remote-all.example.com/write"
+
+
+alerting:
+  alertmanagers:
+    - kubernetes_sd_configs:
+        - role: pod
+          namespaces:
+            names:
+              - monitoring
+          selectors:
+            - role: pod
+              label: "app=alertmanager"
+      relabel_configs:
+        - source_labels: [__meta_kubernetes_pod_label_component]
+          regex: alertmanager
+          action: keep
+        - source_labels: [__meta_kubernetes_pod_container_port_number]
+          regex: 9093
+          action: keep
