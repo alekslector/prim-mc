@@ -19,14 +19,14 @@ sources:
       branch: team1
       auth:
         type: ssh
-        key_env: PROMWATCH_DEFAULTS_SSH_KEY_CONTENT
+        key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}
     
     - name: team2
       repo: git@github.com:alekslector/prim-mc.git
       branch: team2
       auth:
         type: ssh
-        key_env: PROMWATCH_DEFAULTS_SSH_KEY_CONTENT
+        key_env: ${PROMWATCH_DEFAULTS_SSH_KEY_CONTENT}
 
 duplication_tiers:
   - name: low_resolution
